@@ -19,7 +19,6 @@
    or
    php artisan migrate:refresh
    ```
-   or
    ```console
    php artisan db:seed
    ```
