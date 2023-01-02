@@ -21,8 +21,13 @@
               <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="{{ isset($barang) ? $barang->nama_barang : '' }}">
             </div>
             <div class="form-group">
-              <label for="kategori_barang">Kategori Barang</label>
-              <input type="text" class="form-control" id="kategori_barang" name="kategori_barang" value="{{ isset($barang) ? $barang->kategori_barang : '' }}">
+              <label for="id_kategori">Kategori Barang</label>
+							<select name="id_kategori" id="id_kategori" class="custom-select">
+								<option value="" selected disabled hidden>-- Pilih Kategori --</option>
+								@foreach ($kategori as $row)
+									<option value="{{ $row->id }}" {{ isset($barang) ? ($barang->id_kategori == $row->id ? 'selected' : '') : '' }}>{{ $row->nama }}</option>
+								@endforeach
+							</select>
             </div>
             <div class="form-group">
               <label for="harga">Harga Barang</label>
