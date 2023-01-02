@@ -18,6 +18,11 @@ return new class extends Migration
 			$table->string('nama');
 			$table->timestamps();
 		});
+
+		Schema::table('barang', function (Blueprint $table) {
+			$table->dropColumn('kategori_barang');
+			$table->foreignId('id_kategori')->references('id')->on('kategori');
+		});
 	}
 
 	/**
